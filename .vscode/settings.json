@@ -1,0 +1,44 @@
+{
+    "files.exclude": {
+      "node_modules": true,
+      ".editorconfig": false,
+      ".eslintrc.js": false,
+      ".prettierrc": false,
+      "yarn.lock": true,
+      "package-lock.json": true,
+    },
+    "breadcrumbs.enabled": true,
+    "editor.fontLigatures": true,
+    "editor.rulers": [
+      120
+    ],
+    "explorer.compactFolders": false,
+    "editor.renderLineHighlight": "gutter",
+    "editor.tabSize": 2,
+    "editor.parameterHints.enabled": false,
+    "editor.formatOnSave": false,
+    "eslint.packageManager":  "npm",
+    "[javascript]": {
+      "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+      }
+    },
+    "[javascriptreact]": {
+      "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+      }
+    },
+    "[typescript]": {
+      "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+      }
+    },
+    "emmet.includeLanguages": {
+      "javascript": "javascriptreact"
+    },
+    "emmet.syntaxProfiles": {
+      "javascript": "jsx"
+    },
+    "javascript.updateImportsOnFileMove.enabled": "never",
+    "javascript.suggest.autoImports": false
+  }
