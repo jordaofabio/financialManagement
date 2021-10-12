@@ -8,7 +8,7 @@
     "test": "npx ts-mocha -w --parallel ./src/modules/**/test/*.test.ts",
     "test:cov": "npx nyc npx ts-mocha --parallel ./src/modules/**/test/*.test.ts",
     "dev": "npx ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/server.ts",
-    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
+    "typeorm": "npx ts-node-dev ./node_modules/typeorm/cli.js"
   },
   "repository": {
     "type": "git",
