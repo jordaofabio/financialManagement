@@ -1,8 +1,10 @@
+import 'reflect-metadata';
 import express from 'express';
 import { graphqlHTTP } from 'express-graphql';
-import { makeExecutableSchema } from 'graphql-tools';
+import { makeExecutableSchema } from '@graphql-tools/schema';
 import resolvers from './resolvers';
 import typeDefs from './schemas';
+import './database';
 
 const app = express();
 
