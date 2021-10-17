@@ -6,3 +6,4 @@ dist
 .env
 .env.test
 .nyc_output
+comands.txt
