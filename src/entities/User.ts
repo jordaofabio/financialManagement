@@ -3,7 +3,7 @@ import {
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 
-@Entity('users')
+@Entity('user')
 class User {
   @PrimaryColumn()
   readonly id: string;
@@ -30,4 +30,4 @@ class User {
   }
 }
 
-export default { User };
+export default User;
