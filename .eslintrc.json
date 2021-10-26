@@ -26,8 +26,8 @@
               "tsx": "never"
             }
          ],
-         "camelcase": "off"
-
+         "camelcase": "off",
+         "class-methods-use-this": "off"
     },
     "settings": {
         "import/resolver": {
