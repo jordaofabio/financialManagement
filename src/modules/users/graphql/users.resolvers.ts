@@ -1,4 +1,4 @@
-import ListUserService from '@/services/ListUserService';
+import ListUserService from '@services/ListUserService';
 
 const usersResolvers = {
   Query: {
