@@ -1,17 +1,13 @@
+import ListUserService from '@/services/ListUserService';
+
 const usersResolvers = {
   Query: {
     getAllUser() {
-      return [{
-        name: 'Fabio',
-      },
-      {
-        name: 'Priscila',
-      }];
+      const listUserService = new ListUserService();
+      return listUserService.execute();
     },
   },
-  // Mutation: {
-
-  // },
+  // Mutation: {},
 };
 
 export default usersResolvers;

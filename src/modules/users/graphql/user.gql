@@ -1,5 +1,12 @@
+scalar Date
+
 type User {
+  id: String
   name: String
+  email: String
+  admin: Boolean
+  created_at: Date
+  updated_at: Date
 }
 
 type Query {
