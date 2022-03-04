@@ -2,11 +2,32 @@ import 'reflect-metadata';
 import express, { Request, Response } from 'express';
 import 'express-async-errors';
 import './database';
-import router from './routes';
+import { graphqlHTTP } from 'express-graphql';
+import { makeExecutableSchema } from 'graphql-tools';
+import routes from './routes';
+import resolvers from './resolvers';
+import typeDefs from './schemas';
 
 const app = express();
 app.use(express.json());
-app.use(router);
+app.use(routes);
+
+const schema = makeExecutableSchema({
+  resolvers,
+  typeDefs,
+});
+
+app.use(
+  '/graphql',
+  graphqlHTTP({
+    schema,
+    graphiql: true,
+  }),
+);
+
+app.use('/helth', (req: Request, res: Response) => {
+  res.send('<h1>Oi!</h1>');
+});
 
 app.use((err: Error, req: Request, res: Response, next: NewableFunction) => {
   if (err instanceof Error) {
@@ -19,4 +40,4 @@ app.use((err: Error, req: Request, res: Response, next: NewableFunction) => {
   });
 });
 
-app.listen(3333);
+app.listen(3333, () => console.log('Server is running'));
