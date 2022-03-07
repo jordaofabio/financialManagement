@@ -1,14 +1,14 @@
 import { getCustomRepository } from 'typeorm';
-import UsersRepositories from '@repositories/UserRepository';
+import UsersRepositoy from '@repositories/UserRepository';
 import { instanceToPlain } from 'class-transformer';
 import { injectable } from 'tsyringe';
 
 @injectable()
 class ListUserService {
   async execute() {
-    const usersRepositories = getCustomRepository(UsersRepositories);
+    const usersRepositoy = getCustomRepository(UsersRepositoy);
 
-    const users = await usersRepositories.find();
+    const users = await usersRepositoy.find();
 
     return instanceToPlain(users);
   }

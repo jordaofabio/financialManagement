@@ -1,11 +1,11 @@
 import { injectable } from 'tsyringe';
 import { getCustomRepository } from 'typeorm';
-import SubcategoryRepositories from '../repositories/SubcategoryRepositories';
+import SubcategoryRepositoy from '../repositories/SubcategoryRepository';
 
 @injectable()
 class CreateSubcategoryService {
   async execute(category_id: string, name: string, url: string) {
-    const subcategoryRepositories = getCustomRepository(SubcategoryRepositories);
+    const subcategoryRepositoy = getCustomRepository(SubcategoryRepositoy);
 
     if (!name) {
       throw new Error('Invalid name!');
@@ -19,15 +19,15 @@ class CreateSubcategoryService {
       throw new Error('Invalid main category!');
     }
 
-    const subcategoryAlreadyExists = await subcategoryRepositories.findOne({ name, url });
+    const subcategoryAlreadyExists = await subcategoryRepositoy.findOne({ name, url });
 
     if (subcategoryAlreadyExists) {
       throw new Error('Tag already exists!');
     }
 
-    const subcategory = subcategoryRepositories.create({ category_id, name, url });
+    const subcategory = subcategoryRepositoy.create({ category_id, name, url });
 
-    await subcategoryRepositories.save(subcategory);
+    await subcategoryRepositoy.save(subcategory);
 
     return subcategory;
   }

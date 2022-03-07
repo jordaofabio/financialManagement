@@ -1,25 +1,25 @@
 import { injectable } from 'tsyringe';
 import { getCustomRepository } from 'typeorm';
-import TagsRepositories from '../repositories/TagsRepositories';
+import TagsRepositoy from '../repositories/TagsRepository';
 
 @injectable()
 class CreateTagService {
   async execute(name: string) {
-    const tagsRepositories = getCustomRepository(TagsRepositories);
+    const tagsRepositoy = getCustomRepository(TagsRepositoy);
 
     if (!name) {
       throw new Error('Invalid name!');
     }
 
-    const tagAlreadyExists = await tagsRepositories.findOne({ name });
+    const tagAlreadyExists = await tagsRepositoy.findOne({ name });
 
     if (tagAlreadyExists) {
       throw new Error('Tag already exists!');
     }
 
-    const tag = tagsRepositories.create({ name });
+    const tag = tagsRepositoy.create({ name });
 
-    await tagsRepositories.save(tag);
+    await tagsRepositoy.save(tag);
 
     return tag;
   }
