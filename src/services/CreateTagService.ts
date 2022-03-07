@@ -1,6 +1,8 @@
+import { injectable } from 'tsyringe';
 import { getCustomRepository } from 'typeorm';
 import TagsRepositories from '../repositories/TagsRepositories';
 
+@injectable()
 class CreateTagService {
   async execute(name: string) {
     const tagsRepositories = getCustomRepository(TagsRepositories);

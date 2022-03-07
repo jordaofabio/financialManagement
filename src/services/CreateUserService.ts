@@ -1,5 +1,6 @@
 import { getCustomRepository } from 'typeorm';
 import UserRepository from '@repositories/UserRepository';
+import { injectable } from 'tsyringe';
 
 interface IUserRequest {
   name: string;
@@ -7,6 +8,7 @@ interface IUserRequest {
   admin?: boolean;
 }
 
+@injectable()
 class CreateUserService {
   async execute({ name, email, admin }: IUserRequest) {
     const userRepository = getCustomRepository(UserRepository);
