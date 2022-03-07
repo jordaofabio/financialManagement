@@ -1,10 +1,14 @@
-import { injectable } from 'tsyringe';
 import { getCustomRepository } from 'typeorm';
-import CategoryRepositoy from '../repositories/CategoryRepository';
+import CategoryRepositoy from '@repositories/CategoryRepository';
+import { injectable } from 'tsyringe';
 
+interface ICategoryRequest {
+  name: String
+  url: String
+}
 @injectable()
 class CreateCategoryService {
-  async execute(name: string, url: string) {
+  async execute({ name, url }: ICategoryRequest) {
     const categoryRepositoy = getCustomRepository(CategoryRepositoy);
 
     if (!name) {

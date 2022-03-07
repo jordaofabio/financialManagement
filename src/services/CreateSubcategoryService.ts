@@ -1,10 +1,15 @@
 import { injectable } from 'tsyringe';
 import { getCustomRepository } from 'typeorm';
-import SubcategoryRepositoy from '../repositories/SubcategoryRepository';
+import SubcategoryRepositoy from '@repositories/SubcategoryRepository';
 
+interface ISubCategoryRequest {
+  category_id: string
+  name: String
+  url: String
+}
 @injectable()
 class CreateSubcategoryService {
-  async execute(category_id: string, name: string, url: string) {
+  async execute({category_id, name, url}: ISubCategoryRequest) {
     const subcategoryRepositoy = getCustomRepository(SubcategoryRepositoy);
 
     if (!name) {
