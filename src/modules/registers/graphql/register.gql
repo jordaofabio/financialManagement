@@ -1,0 +1,30 @@
+scalar Date
+
+type Register {
+  id: String
+  name: String
+  category_id: String
+  description: String
+  value: Float
+  type: Int
+  date: Date
+  created_at: Date
+  updated_at: Date
+}
+
+type Query {
+  getAllRegister: [Register]
+}
+
+input RegisterInput {
+  name: String
+  category_id: String
+  description: String
+  value: Float
+  type: Int
+  date: Date
+}
+
+type Mutation {
+  createRegister(input: RegisterInput): Register
+}
