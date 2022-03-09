@@ -15,7 +15,6 @@ export class CreateRegisters1646798682200 implements MigrationInterface {
               {
                 name: 'category_id',
                 type: 'uuid',
-                isPrimary: true,
               },
               {
                 name: 'name',
