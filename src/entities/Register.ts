@@ -3,10 +3,13 @@ import {
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 
-@Entity()
+@Entity('registers')
 export class Register {
   @PrimaryColumn()
   readonly id: string;
+
+  @Column()
+  category_id: string;
 
   @Column()
   name: string;
