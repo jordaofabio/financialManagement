@@ -3,8 +3,8 @@ import CategoryRepositoy from '@repositories/CategoryRepository';
 import { injectable } from 'tsyringe';
 
 interface ICategoryRequest {
-  name: String
-  url: String
+  name: string
+  url: string
 }
 @injectable()
 class CreateCategoryService {
