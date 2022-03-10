@@ -2,30 +2,19 @@ import {
   Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Column, JoinColumn, ManyToOne,
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
-import Category from './Category';
+import Register from './Register';
+import Tag from './Tag';
 
-@Entity('registers')
-export class Register {
+@Entity('registersTags')
+export class RegisterTag {
   @PrimaryGeneratedColumn()
   readonly id: string;
 
   @Column()
-  category_id: string;
+  register_id: String;
 
   @Column()
-  name: string;
-
-  @Column()
-  description: string;
-
-  @Column()
-  value: number;
-
-  @Column()
-  type: number;
-
-  @Column()
-  date: Date;
+  tag_id: String;
 
   @CreateDateColumn()
   created_at: Date;
@@ -33,9 +22,14 @@ export class Register {
   @UpdateDateColumn()
   updated_at: Date;
 
-  @ManyToOne(() => Category)
-  @JoinColumn()
-  category: Category;
+  @ManyToOne(() => Tag)
+  @JoinColumn({ name: 'tag_id' })
+  tag: Tag;
+
+  @ManyToOne(() => Register)
+  @JoinColumn({ name: 'register_id' })
+  register: Register;
+
 
   constructor() {
     if (!this.id) {
@@ -44,4 +38,4 @@ export class Register {
   }
 }
 
-export default Register;
+export default RegisterTag;
