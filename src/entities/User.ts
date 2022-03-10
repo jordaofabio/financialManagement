@@ -1,11 +1,11 @@
 import {
-  Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn,
+  Entity, PrimaryColumn, Column, CreateDateColumn, UpdateDateColumn,
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 
 @Entity('user')
 class User {
-  @PrimaryGeneratedColumn()
+  @PrimaryColumn()
   readonly id: string;
 
   @Column()

@@ -1,5 +1,5 @@
 import {
-  Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Column, JoinColumn, ManyToOne,
+  Entity, PrimaryColumn, CreateDateColumn, UpdateDateColumn, Column, JoinColumn, ManyToOne,
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 import Register from './Register';
@@ -7,7 +7,7 @@ import Tag from './Tag';
 
 @Entity('registersTags')
 export class RegisterTag {
-  @PrimaryGeneratedColumn()
+  @PrimaryColumn()
   readonly id: string;
 
   @Column()
