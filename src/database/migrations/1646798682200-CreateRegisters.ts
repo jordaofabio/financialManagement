@@ -1,4 +1,4 @@
-import { MigrationInterface, QueryRunner, Table } from 'typeorm';
+import { MigrationInterface, QueryRunner, Table, TableForeignKey } from 'typeorm';
 
 export class CreateRegisters1646798682200 implements MigrationInterface {
 
@@ -49,6 +49,13 @@ export class CreateRegisters1646798682200 implements MigrationInterface {
             ],
           }),
         );
+
+        await queryRunner.createForeignKey("registers", new TableForeignKey({
+          columnNames: ["category_id"],
+          referencedColumnNames: ["id"],
+          referencedTableName: "categories",
+          onDelete: "SET NULL"
+        }));
       }
 
       public async down(queryRunner: QueryRunner): Promise<void> {
