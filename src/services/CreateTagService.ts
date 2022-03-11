@@ -2,9 +2,12 @@ import { injectable } from 'tsyringe';
 import { getCustomRepository } from 'typeorm';
 import TagsRepositoy from '../repositories/TagsRepository';
 
+interface ITagRequest {
+  name: string
+}
 @injectable()
 class CreateTagService {
-  async execute(name: string) {
+  async execute({ name }: ITagRequest) {
     const tagsRepositoy = getCustomRepository(TagsRepositoy);
 
     if (!name) {
