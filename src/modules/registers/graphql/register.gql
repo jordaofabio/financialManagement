@@ -6,6 +6,7 @@ type Register {
   category_id: String
   description: String
   value: Float
+  tags: [String]
   type: Int
   date: Date
   created_at: Date
@@ -20,6 +21,7 @@ input RegisterInput {
   name: String
   category_id: String
   description: String
+  tags: [String]
   value: Float
   type: Int
   date: Date
