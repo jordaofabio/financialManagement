@@ -1,7 +1,8 @@
 import {
-  Entity, PrimaryColumn, CreateDateColumn, UpdateDateColumn, Column,
+  Entity, PrimaryColumn, CreateDateColumn, UpdateDateColumn, Column, JoinColumn, ManyToMany,
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
+import Register from './Register';
 
 @Entity('tags')
 class Tag {
@@ -16,6 +17,13 @@ class Tag {
 
   @UpdateDateColumn()
   updated_at: Date;
+
+  // @JoinColumn({ name: 'id' })
+  // @ManyToMany(() => Register, (register: { tag: any; }) => register.tag)
+  // tag: Tag;
+
+  // @ManyToMany(() => Register, register => register.tags)
+  // registers: Register[];
 
   constructor() {
     if (!this.id) {

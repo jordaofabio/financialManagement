@@ -1,8 +1,9 @@
 import {
-  Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Column, JoinColumn, ManyToOne,
+  Entity, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, Column, JoinColumn, ManyToOne, ManyToMany, JoinTable,
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 import Category from './Category';
+import Tag from './Tag';
 
 @Entity('registers')
 export class Register {
@@ -34,8 +35,12 @@ export class Register {
   updated_at: Date;
 
   @ManyToOne(() => Category)
-  @JoinColumn()
+  @JoinColumn({ name: 'category_id' })
   category: Category;
+
+  @ManyToMany(() => Tag)
+  @JoinTable()
+  tags: Tag[];
 
   constructor() {
     if (!this.id) {

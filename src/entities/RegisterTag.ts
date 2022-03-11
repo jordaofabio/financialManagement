@@ -23,11 +23,9 @@ export class RegisterTag {
   updated_at: Date;
 
   @ManyToOne(() => Tag)
-  @JoinColumn({ name: 'tag_id' })
   tag: Tag;
 
   @ManyToOne(() => Register)
-  @JoinColumn({ name: 'register_id' })
   register: Register;
 
 
