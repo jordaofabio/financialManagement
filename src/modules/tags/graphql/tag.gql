@@ -1,0 +1,20 @@
+scalar Date
+
+type Tag {
+  id: String
+  name: String
+  created_at: Date
+  updated_at: Date
+}
+
+type Query {
+  getAllTag: [Tag]
+}
+
+input TagInput {
+  name: String
+}
+
+type Mutation {
+  createTag(input: TagInput): Tag
+}
