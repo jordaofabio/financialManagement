@@ -5,7 +5,7 @@ export class CreateRegistersTags1646827711863 implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
           new Table({
-            name: 'registersTags',
+            name: 'register_tags_tag',
             columns: [
               {
                 name: 'id',

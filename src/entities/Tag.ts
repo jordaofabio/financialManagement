@@ -1,8 +1,8 @@
 import {
-  Entity, PrimaryColumn, CreateDateColumn, UpdateDateColumn, Column, JoinColumn, ManyToMany,
+  Entity, PrimaryColumn, CreateDateColumn, UpdateDateColumn, Column, JoinColumn, ManyToMany, OneToMany,
 } from 'typeorm';
 import { v4 as uuid } from 'uuid';
-import Register from './Register';
+import RegisterTag from './RegisterTag';
 
 @Entity('tags')
 class Tag {
@@ -24,6 +24,9 @@ class Tag {
 
   // @ManyToMany(() => Register, register => register.tags)
   // registers: Register[];
+
+  @OneToMany(() => RegisterTag, registerTag => registerTag.register)
+  registerTag!: RegisterTag[];
 
   constructor() {
     if (!this.id) {
