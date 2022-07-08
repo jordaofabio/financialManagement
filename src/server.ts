@@ -25,8 +25,8 @@ app.use(
   }),
 );
 
-app.use('/helth', (req: Request, res: Response) => {
-  res.send('<h1>Oi!</h1>');
+app.use('/health', (req: Request, res: Response) => {
+  res.send('<h1>I\'m alive!</h1>');
 });
 
 app.use((err: Error, req: Request, res: Response, next: NewableFunction) => {
